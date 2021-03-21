@@ -5,12 +5,14 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+
+
 const seattle = {
   location: 'seattle',
   minCustPerHour: 23,
   maxCustPerHour: 65,
   avgCookiePerSale: 6.3,
-
+  total : 0,
 
 
 
@@ -33,7 +35,11 @@ const seattle = {
       const liEl = document.createElement('li');
       unOrederLisElement.appendChild(liEl);
       liEl.textContent = [`${hoursOpen[i]}:  ${x} cookies`];
+      this.total =this.total+x;
     }
+    const totalElement = document.createElement('p');
+    section.appendChild(totalElement);
+    totalElement.textContent=`The Total Is : ${this.total}`;
   }
 
 
@@ -48,6 +54,7 @@ const Tokyo = {
   minCustPerHour: 23,
   maxCustPerHour: 65,
   avgCookiePerSale: 6.3,
+  total : 0,
 
 
 
@@ -71,7 +78,12 @@ const Tokyo = {
       const liEl = document.createElement('li');
       unOrederLisElement.appendChild(liEl);
       liEl.textContent = [`${hoursOpen[i]}:  ${x} cookies`];
+      this.total =this.total+x;
+
     }
+    const totalElement = document.createElement('p');
+    section.appendChild(totalElement);
+    totalElement.textContent=`The Total Is : ${this.total}`;
   }
 
 
@@ -87,6 +99,7 @@ const Dubai = {
   minCustPerHour: 23,
   maxCustPerHour: 65,
   avgCookiePerSale: 6.3,
+  total : 0,
 
 
 
@@ -110,7 +123,12 @@ const Dubai = {
       const liEl = document.createElement('li');
       unOrederLisElement.appendChild(liEl);
       liEl.textContent = [`${hoursOpen[i]}:  ${x} cookies`];
+      this.total =this.total+x;
+
     }
+    const totalElement = document.createElement('p');
+    section.appendChild(totalElement);
+    totalElement.textContent=`The Total Is : ${this.total}`;
   }
 
 
@@ -127,6 +145,7 @@ const Paris = {
   minCustPerHour: 23,
   maxCustPerHour: 65,
   avgCookiePerSale: 6.3,
+  total : 0,
 
 
 
@@ -150,7 +169,14 @@ const Paris = {
       const liEl = document.createElement('li');
       unOrederLisElement.appendChild(liEl);
       liEl.textContent = [`${hoursOpen[i]}:  ${x} cookies`];
+      this.total =this.total+x;
+
     }
+    const totalElement = document.createElement('p');
+    section.appendChild(totalElement);
+    totalElement.textContent=`The Total Is : ${this.total}`;
+
+
   }
 
 
@@ -167,6 +193,7 @@ const Lima = {
   minCustPerHour: 23,
   maxCustPerHour: 65,
   avgCookiePerSale: 6.3,
+  total : 0,
 
 
 
@@ -190,7 +217,12 @@ const Lima = {
       const liEl = document.createElement('li');
       unOrederLisElement.appendChild(liEl);
       liEl.textContent = [`${hoursOpen[i]}:  ${x} cookies`];
+      this.total =this.total+x;
+
     }
+    const totalElement = document.createElement('p');
+    section.appendChild(totalElement);
+    totalElement.textContent=`The Total Is : ${this.total}`;
   }
 
 
