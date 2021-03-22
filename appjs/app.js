@@ -88,6 +88,7 @@ function Lacations (location,minCustPerHour,maxCustPerHour,avgCookiePerSale )
 
 
       footerData.push(this.totalCulomn);
+      this.totalOfTotal=this.totalOfTotal+this.totalCulomn;
       this.totalCulomn = 0;
       console.log(this.totalCulomn);
     }
@@ -129,6 +130,7 @@ Lacations.prototype.render = function()
 
     tableData1.textContent=this.cookiesPerHours[i];
     this.total = this.cookiesPerHours[i]+this.total;
+    this.totalOfTotal=this.totalOfTotal+this.total;
 
 
 
@@ -161,7 +163,7 @@ Lacations.prototype.footerRender = function()
   }
   const tableHeader1 = document.createElement('th');
   tableHeaderRow1.appendChild(tableHeader1);
-  tableHeader1.textContent=this.totalOfTotal=this.total+this.totalCulomn;
+  tableHeader1.textContent=this.totalOfTotal;
 
 
 
