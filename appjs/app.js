@@ -156,8 +156,8 @@ myForm.addEventListener('submit',addNewLocation);
 
 function addNewLocation(event)
 {
-  // const rowtodelet = tableEl.rows.length;
-  // tableEl.deleteRow(rowtodelet-1);
+  const rowtodelet = tabelElement.rows.length;
+  tabelElement.deleteRow(rowtodelet-1);
   event.preventDefault();
   let location = event.target.location.value;
   let minCustPerHour = event.target.minCustPerHour.value;
