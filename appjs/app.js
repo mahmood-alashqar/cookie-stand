@@ -10,11 +10,45 @@ section.appendChild(articleElement);
 const tabelElement = document.createElement('table');
 
 articleElement.appendChild(tabelElement);
+
 let loc=[];
+
+
 let footerData = [];
 
 
 
+
+
+
+function Lacations (location,minCustPerHour,maxCustPerHour,avgCookiePerSale )
+{
+  this.location = location;
+  this.total = 0;
+  this.totalCulomn=0;
+  this.totalOfTotal=0;
+  this.minCustPerHour = minCustPerHour;
+  this.maxCustPerHour = maxCustPerHour;
+  this.avgCookiePerSale = avgCookiePerSale;
+  this.custPerHoursArray = [];
+  this.cookiesPerHours = [];
+  this.custPerHours=function()
+  {
+    for (let i =0 ; i<hoursOpen.length;i++)
+    {
+      let custPerHours = Math.trunc(getRandomNumber(this.minCustPerHour, this.maxCustPerHour) );
+      this.custPerHoursArray.push(custPerHours);
+
+    }
+
+
+
+  };
+  this.calCookiesPerHour = function()
+  {
+    this.custPerHours();
+    for (let i =0;i<hoursOpen.length;i++)
+    {
 
 
 function Lacations (location,minCustPerHour,maxCustPerHour,avgCookiePerSale )
@@ -78,6 +112,61 @@ function Lacations (location,minCustPerHour,maxCustPerHour,avgCookiePerSale )
 
 
 
+
+      let cookies = this.custPerHoursArray[i] * avgCookiePerSale;
+      this.cookiesPerHours.push(Math.floor(cookies));
+
+
+    }
+
+  };
+
+  this.headerRander = function()
+  {
+    const tableHeaderRow1 = document.createElement('tr');
+    tabelElement.appendChild(tableHeaderRow1);
+    const tableHeader = document.createElement('th');
+    tableHeaderRow1.appendChild(tableHeader);
+    tableHeader.textContent='LOC';
+    for (let i=0;i<hoursOpen.length;i++)
+    {
+      const tableHeader = document.createElement('th');
+      tableHeaderRow1.appendChild(tableHeader);
+      tableHeader.textContent=hoursOpen[i];
+
+    }
+
+
+    const tableHeader16 = document.createElement('th');
+    tableHeaderRow1.appendChild(tableHeader16);
+    tableHeader16.textContent='Daily Location Total';
+
+  };
+
+  this.setSummationOfColumns = function ( )
+  {
+
+    let loc =[seattle,Tokyo,Dubai,Paris,Lima];
+    for (let i=0;i<hoursOpen.length;i++)
+    {
+
+      for (let j =0;j<loc.length;j++)
+      {
+        this.totalCulomn +=loc[j].cookiesPerHours[i];
+      }
+
+
+      footerData.push(this.totalCulomn);
+      this.totalOfTotal=this.totalOfTotal+this.totalCulomn;
+      this.totalCulomn = 0;
+      console.log(this.totalCulomn);
+    }
+
+
+  };
+
+
+
 }
 
 
@@ -127,7 +216,32 @@ Lacations.prototype.render = function()
 
 
 };
+Lacations.prototype.footerRender = function()
+{
+  this.setSummationOfColumns();
+  const tableHeaderRow1 = document.createElement('tr');
+  tabelElement.appendChild(tableHeaderRow1);
+  const tableHeader = document.createElement('th');
+  tableHeaderRow1.appendChild(tableHeader);// repeat
+  tableHeader.textContent='Total';// repeat
 
+
+  for (let i =0; i<hoursOpen.length;i++)
+  {
+    const tableHeader1 = document.createElement('th');
+    tableHeaderRow1.appendChild(tableHeader1);
+    tableHeader1.textContent=footerData[i];
+  }
+  const tableHeader1 = document.createElement('th');
+  tableHeaderRow1.appendChild(tableHeader1);
+  tableHeader1.textContent=this.totalOfTotal;
+
+
+
+
+
+
+};
 
 const seattle = new Lacations ('seattle', 23 , 65 , 6.3);
 seattle.headerRander();
@@ -143,8 +257,13 @@ const Paris = new Lacations ('Paris', 20 , 38 , 2.3);
 Paris.render();
 const Lima = new Lacations ('Lima', 2 , 16 , 4.6);
 Lima.render();
+
 //seattle.footerRender();
 console.log(loc);
+
+seattle.footerRender();
+
+
 
 
 
